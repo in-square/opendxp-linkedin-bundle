@@ -5,8 +5,8 @@ This bundle synchronizes the latest LinkedIn (Company Page) posts into OpenDXP D
 ## Requirements
 
 - PHP 8.3
-- Symfony 6.4
-- OpenDXP 11.5
+- Symfony 7.4
+- OpenDXP 1.x
 
 ## Environment Configuration
 
