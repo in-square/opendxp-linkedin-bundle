@@ -1,0 +1,3 @@
+in_square_opendxp_linkedin:
+    resource: '@InSquareOpendxpLinkedinBundle/Controller/'
+    type: attribute

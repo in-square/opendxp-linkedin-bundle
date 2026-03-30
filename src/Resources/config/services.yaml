@@ -1,0 +1,41 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    InSquare\OpendxpLinkedinBundle\Installer:
+        public: true
+        arguments:
+            $bundle: "@=service('kernel').getBundle('InSquareOpendxpLinkedinBundle')"
+
+    InSquare\OpendxpLinkedinBundle\Service\LinkedinTokenStorage:
+        arguments:
+            $environment: '%kernel.environment%'
+
+    InSquare\OpendxpLinkedinBundle\Service\LinkedinOAuthService:
+        arguments:
+            $clientId: '%env(LINKEDIN_CLIENT_ID)%'
+            $clientSecret: '%env(LINKEDIN_CLIENT_SECRET)%'
+            $redirectUri: '%env(LINKEDIN_REDIRECT_URI)%'
+            $scopes: '%env(default::LINKEDIN_SCOPES)%'
+
+    InSquare\OpendxpLinkedinBundle\Service\LinkedinApiClient:
+        arguments:
+            $apiVersion: '%env(default::LINKEDIN_API_VERSION)%'
+
+    InSquare\OpendxpLinkedinBundle\Service\LinkedinPostSyncService:
+        arguments:
+            $organizationUrn: '%env(LINKEDIN_ORGANIZATION_URN)%'
+            $objectFolderPath: '%in_square_opendxp_linkedin.object_folder%'
+            $assetFolderPath: '%in_square_opendxp_linkedin.assets_folder%'
+
+    InSquare\OpendxpLinkedinBundle\Service\LinkedinSettings:
+        arguments:
+            $config: '%in_square_opendxp_linkedin%'
+
+    InSquare\OpendxpLinkedinBundle\Command\LinkedinSyncLatestCommand: ~
+
+    InSquare\OpendxpLinkedinBundle\Controller\LinkedinAuthController:
+        tags:
+            - controller.service_arguments

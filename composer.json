@@ -1,0 +1,44 @@
+{
+  "name": "in-square/opendxp-linkedin-bundle",
+  "description": "LinkedIn posts sync bundle for OpenDXP.",
+  "type": "opendxp-bundle",
+  "keywords": ["opendxp", "linkedin", "opendxp-bundle", "opendxp-plugin"],
+  "license": "GPL-3.0-or-later",
+  "homepage": "https://github.com/in-square/opendxp-linkedin-bundle",
+  "authors": [
+    {
+      "name": "Wladyslaw Dudko",
+      "email": "w.dudko@insquare.pl",
+      "homepage": "https://insquare.pl/"
+    }
+  ],
+  "support": {
+    "issues": "https://github.com/in-square/opendxp-linkedin-bundle/issues",
+    "source": "https://github.com/in-square/opendxp-linkedin-bundle"
+  },
+  "require": {
+    "php": "^8.3",
+    "insquare/opendxp-process-manager-bundle": "@dev",
+    "guzzlehttp/guzzle": "^7.8",
+    "nesbot/carbon": "^2.0",
+    "symfony/framework-bundle": "^7.4",
+    "symfony/console": "^7.4",
+    "open-dxp/opendxp": "^1.0"
+  },
+  "require-dev": {
+    "friendsofphp/php-cs-fixer": "^3.64",
+    "phpstan/phpstan": "^1.11"
+  },
+  "autoload": {
+    "psr-4": {
+      "InSquare\\OpendxpLinkedinBundle\\": "src/"
+    }
+  },
+  "extra": {
+    "opendxp": {
+      "bundles": [
+        "InSquare\\OpendxpLinkedinBundle\\InSquareOpendxpLinkedinBundle"
+      ]
+    }
+  }
+}
